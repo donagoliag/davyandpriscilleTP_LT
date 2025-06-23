@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st 
 from PIL import Image
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,7 +8,7 @@ from simulators10.tmsim import NondeterministicTuringMachine, DeterministicTurin
 # Configuration de la page
 st.set_page_config(
     page_title="TP : Langage et traducteurs",
-    page_icon="🧠",
+    page_icon="🧐",
     layout="wide"
 )
 
@@ -85,12 +85,12 @@ def main_exo10():
     col1, col2 = st.columns(2)
     with col1:
         max_len = st.slider("Taille maximale d'entrée", 10, 100, 50)
-        mode = st.selectbox("Langage à tester", ["0ⁿ1ⁿ", "Palindrome", "Aléatoire"])
+        mode = st.selectbox("Langage à tester", ["0ⁿn1ⁿ", "Palindrome", "Aléatoire"])
     with col2:
         trials = st.slider("Nombre d'essais par point", 1, 10, 3)
         step = st.select_slider("Pas d'incrémentation", options=[1, 5, 10])
 
-    if mode == "0ⁿ1ⁿ":
+    if mode == "0ⁿn1ⁿ":
         trans_d = {('q0', '0'): ('q1', 'X', 'R'), ('q1', '0'): ('q1', '0', 'R'), ('q1', '1'): ('q2', 'Y', 'L'),
                    ('q2', '0'): ('q2', '0', 'L'), ('q2', 'X'): ('q0', 'X', 'R'), ('q0', 'Y'): ('q0', 'Y', 'R'),
                    ('q0', '_'): ('q_accept', '_', 'S')}
@@ -142,10 +142,9 @@ def main_exo10():
                 'Time_ratio': '{:.1f}', 'Paths_per_char': '{:.1e}'
             }))
 
-
 # === Navigation dans la sidebar ===
 with st.sidebar:
-    st.title("🧠 Menu de Navigation")
+    st.title("🧐 Menu de Navigation")
     st.markdown("### TP : Langage et traducteurs\n*Exercices 6 à 10*")
     st.markdown("---")
     if st.button("🏠 Page d'Accueil", key="home"):
